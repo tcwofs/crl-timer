@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 export default class NumericPad extends Component {
   render() {
-    return <main>numericpad</main>;
+    return (
+      <div>
+        <p>numericpad</p>
+      </div>
+    );
   }
 }
