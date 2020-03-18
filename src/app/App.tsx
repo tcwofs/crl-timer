@@ -1,11 +1,11 @@
 import React from 'react';
-import { BackgroundAnimation, NumericPad } from '../components';
+import { BackgroundAnimation, TimerMain } from '../components';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className='App'>
-      <NumericPad />
+      <TimerMain />
       <BackgroundAnimation />
     </div>
   );

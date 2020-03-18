@@ -1,0 +1,26 @@
+#formatted-text-mask-input {
+  background-color: #242424;
+  color: #e6e6e6;
+  border-color: #242424;
+  text-align: center;
+  width: 100%;
+}
+
+#paper {
+  background-color: #222222;
+  padding: 0.7em;
+}
+
+#text-input-button {
+  width: 100%;
+}
+
+#numeric-button {
+  background-color: #464646;
+  color: #e6e6e6;
+  width: 100%;
+}
+
+.MuiInputBase-root {
+  margin-bottom: 0.4em;
+}

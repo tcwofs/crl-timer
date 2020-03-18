@@ -1,3 +1,3 @@
-import TimerPad from './TimerPad';
+import TimerMain from './TimerMain';
 
-export default TimerPad;
+export default TimerMain;

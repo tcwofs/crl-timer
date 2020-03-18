@@ -1,5 +1,6 @@
 import BackgroundAnimation from './main-background';
-import NumericPad from './main-pad';
-import TimerPad from './main-timer';
+import TimerMain from './main-timer';
+import TimerCountdown from './timer-countdown';
+import NumericPad from './timer-numerpad';
 
-export { BackgroundAnimation, NumericPad, TimerPad };
+export { BackgroundAnimation, NumericPad, TimerCountdown, TimerMain };
