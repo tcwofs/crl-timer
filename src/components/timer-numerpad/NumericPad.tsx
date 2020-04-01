@@ -29,12 +29,11 @@ interface State {
 }
 
 export default () => {
-  const { startTimer } = useContext(TimerContext);
+  const { switchTimer } = useContext(TimerContext);
   const [values, setValues] = React.useState<State>({ textmask: '00:00:00' });
 
   const addNumber = (number: string) => {
-    let tmpString = (number + values.textmask.replace(/:/g, '').slice(0, -1)).replace(/^(\d{2})(\d{2})/, '$1:$2:');
-    setValues({ textmask: tmpString });
+    setValues({ textmask: (values.textmask.replace(/:/g, '').slice(1) + number).replace(/^(\d{2})(\d{2})/, '$1:$2:') });
   };
 
   const handleChange = (name: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,8 +44,8 @@ export default () => {
   };
 
   return (
-    <div id='numericpad'>
-      <Paper id='paper'>
+    <Paper id='paper'>
+      <Grid container>
         <Grid item xs={12}>
           <OutlinedInput
             id='formatted-text-mask-input'
@@ -56,7 +55,9 @@ export default () => {
             autoComplete='false'
             fullWidth
           />
+        </Grid>
 
+        <Grid item xs={12}>
           {[
             ['1', '2', '3'],
             ['4', '5', '6'],
@@ -75,7 +76,7 @@ export default () => {
 
           <Grid container justify='space-between' alignItems='center' spacing={1}>
             <Grid item xs={4}>
-              <Button id='text-input-button' variant='contained' color='primary' onClick={startTimer}>
+              <Button id='text-input-button' variant='contained' color='primary' onClick={() => switchTimer(values.textmask)}>
                 Start
               </Button>
             </Grid>
@@ -91,7 +92,7 @@ export default () => {
             </Grid>
           </Grid>
         </Grid>
-      </Paper>
-    </div>
+      </Grid>
+    </Paper>
   );
 };
