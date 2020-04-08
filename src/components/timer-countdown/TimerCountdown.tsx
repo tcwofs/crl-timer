@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { TimerContext } from '../main-timer/TimerMain';
 import './TimerCountdown.css';
 
-export default (props: any) => {
+const TimerCountdown = (props: any) => {
   const { switchTimer } = useContext(TimerContext);
   let [hours, minutes, seconds]: [number, number, number] = props.time;
   const [time, setTime] = useState(+hours * 60 * 60 + +minutes * 60 + +seconds);
@@ -47,3 +47,5 @@ export default (props: any) => {
     </Paper>
   );
 };
+
+export default TimerCountdown;

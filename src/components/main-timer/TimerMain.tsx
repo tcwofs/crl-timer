@@ -4,6 +4,7 @@ import { NumericPad, TimerCountdown } from '../index';
 import './TimerMain.css';
 
 export const TimerContext = createContext({
+  // eslint-disable-next-line no-unused-vars
   switchTimer: (recievedTime: string) => {
     return;
   },
