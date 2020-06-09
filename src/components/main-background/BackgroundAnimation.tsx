@@ -2,19 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Canvas from 'react-responsive-canvas';
 import './BackgroundAnimation.css';
 
-const getPixelRatio = (context: any) => {
-  let backingStore =
-    context.backingStorePixelRatio ||
-    context.webkitBackingStorePixelRatio ||
-    context.mozBackingStorePixelRatio ||
-    context.msBackingStorePixelRatio ||
-    context.oBackingStorePixelRatio ||
-    context.backingStorePixelRatio ||
-    1;
-
-  return (window.devicePixelRatio || 1) / backingStore;
-};
-
 const BackgroundAnimation = () => {
   const [canref, setCanref] = useState<HTMLCanvasElement | null>(null);
   let ref = useRef<HTMLCanvasElement | null>(null);
@@ -24,48 +11,22 @@ const BackgroundAnimation = () => {
 
   useEffect(() => {
     ref.current = canref;
-
-    let canvas: HTMLCanvasElement | null = ref.current;
-
+    let canvas: HTMLCanvasElement = ref.current as HTMLCanvasElement;
     if (!canvas) {
       return;
     }
-
-    let context = canvas.getContext('2d');
-
-    if (!context) {
-      return;
-    }
-
-    let ratio = getPixelRatio(context);
-    let width = getComputedStyle(canvas)
-      .getPropertyValue('width')
-      .slice(0, -2);
-    let height = getComputedStyle(canvas)
-      .getPropertyValue('height')
-      .slice(0, -2);
-
-    canvas.width = +width * ratio;
-    canvas.height = +height * ratio;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-
+    let context: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
     let numberOfStars = canvas.width * 0.06; // Number of stars
+    let requestID: number;
 
-    pushStars(canvas.width, canvas.height, numberOfStars);
-
-    let requestID: any;
     const render = () => {
-      if (context) {
-        draw(context, canvas);
-        if (canvas) {
-          update(canvas.width, canvas.height);
-        }
+      draw(context, canvas);
+      update(canvas.width, canvas.height);
 
-        requestID = requestAnimationFrame(render);
-      }
+      requestID = requestAnimationFrame(render);
     };
 
+    pushStars(canvas.width, canvas.height, numberOfStars);
     render();
 
     return () => {
@@ -78,14 +39,14 @@ const BackgroundAnimation = () => {
       stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 1 + 1,
+        radius: (Math.random() * height * 2) / width,
         vx: Math.floor(Math.random() * 50) - 25,
         vy: Math.floor(Math.random() * 50) - 25,
       });
     }
   };
 
-  const draw = (context: any, canvas: HTMLCanvasElement | null) => {
+  const draw = (context: any, canvas: HTMLCanvasElement) => {
     if (!canvas) {
       return;
     }
