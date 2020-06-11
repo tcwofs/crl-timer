@@ -1,6 +1,8 @@
-Background animation [Connecting Dots](https://codepen.io/LeonGr/pen/yginI)
+[Github pages ])https://tcwofs.github.io/crl-timer/)
+<br /><br />
+[Background animation](https://codepen.io/LeonGr/pen/yginI)
 <br />
-Resizable canvas for React [react-responsive-canvas](https://github.com/rosszurowski/react-responsive-canvas)
+[Resizable canvas for React](https://github.com/rosszurowski/react-responsive-canvas)
 <br /><br />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
