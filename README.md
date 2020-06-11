@@ -1,4 +1,4 @@
-[Github pages ])https://tcwofs.github.io/crl-timer/)
+[Github pages ](https://tcwofs.github.io/crl-timer/)
 <br /><br />
 [Background animation](https://codepen.io/LeonGr/pen/yginI)
 <br />
