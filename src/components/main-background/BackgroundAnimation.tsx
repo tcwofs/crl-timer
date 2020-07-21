@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import Canvas from 'react-responsive-canvas';
 import './BackgroundAnimation.css';
 
@@ -16,7 +17,7 @@ const BackgroundAnimation = () => {
       return;
     }
     let context: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
-    let numberOfStars = canvas.width * 0.06; // Number of stars
+    let numberOfStars = isMobile ? 60 : 100; // Number of stars
     let requestID: number;
 
     const render = () => {
@@ -39,7 +40,7 @@ const BackgroundAnimation = () => {
       stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: (Math.random() * height * 2) / width,
+        radius: isMobile ? 5 : 2,
         vx: Math.floor(Math.random() * 50) - 25,
         vy: Math.floor(Math.random() * 50) - 25,
       });
@@ -76,7 +77,7 @@ const BackgroundAnimation = () => {
         }
       }
     }
-    context.lineWidth = 0.05;
+    context.lineWidth = isMobile ? 0.5 : 0.1;
     context.strokeStyle = 'white';
     context.stroke();
   };

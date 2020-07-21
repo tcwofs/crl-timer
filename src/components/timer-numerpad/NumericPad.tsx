@@ -1,5 +1,6 @@
 import { Button, Grid, OutlinedInput, Paper } from '@material-ui/core';
 import React, { useContext } from 'react';
+import { isMobile } from 'react-device-detect';
 import MaskedInput from 'react-text-mask';
 import { TimerContext } from '../main-timer/TimerMain';
 import './NumericPad.css';
@@ -44,7 +45,7 @@ export default () => {
   };
 
   return (
-    <Paper id='paper'>
+    <Paper id='paper' style={{ width: isMobile ? '70vw' : '15vw' }}>
       <Grid container>
         <Grid item xs={12}>
           <OutlinedInput
@@ -62,9 +63,9 @@ export default () => {
             ['1', '2', '3'],
             ['4', '5', '6'],
             ['7', '8', '9'],
-          ].map(array => (
+          ].map((array) => (
             <Grid key={array[0]} container justify='space-between' alignItems='center' spacing={1}>
-              {array.map(value => (
+              {array.map((value) => (
                 <Grid key={value} item xs={4}>
                   <Button id='numeric-button' onClick={() => addNumber(value)}>
                     {value}
