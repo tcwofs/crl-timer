@@ -1,12 +1,11 @@
-import { Button, Grid, OutlinedInput, Paper } from '@material-ui/core';
+import { Button, Grid, OutlinedInput, Paper, useTheme, useMediaQuery } from '@material-ui/core';
 import React, { useContext } from 'react';
-import { isMobile } from 'react-device-detect';
 import MaskedInput from 'react-text-mask';
 import { TimerContext } from '../main-timer/TimerMain';
 import './NumericPad.css';
 
 interface TextMaskCustomProps {
-  inputRef: (ref: HTMLInputElement | null) => void;
+  inputRef: (ref: HTMLInputElement | null) => typeof ref;
 }
 
 function TextMaskCustom(props: TextMaskCustomProps) {
@@ -30,6 +29,8 @@ interface State {
 }
 
 export default () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('lg'));
   const { switchTimer } = useContext(TimerContext);
   const [values, setValues] = React.useState<State>({ textmask: '00:00:00' });
 
@@ -45,7 +46,7 @@ export default () => {
   };
 
   return (
-    <Paper id='paper' style={{ width: isMobile ? '70vw' : '15vw' }}>
+    <Paper id='paper' style={{ width: matches ? '15vw' : '70vw' }}>
       <Grid container>
         <Grid item xs={12}>
           <OutlinedInput

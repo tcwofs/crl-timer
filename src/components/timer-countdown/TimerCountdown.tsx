@@ -5,7 +5,7 @@ import './TimerCountdown.css';
 
 const TimerCountdown = (props: any) => {
   const { switchTimer } = useContext(TimerContext);
-  let [hours, minutes, seconds]: [number, number, number] = props.time;
+  const [hours, minutes, seconds]: [number, number, number] = props.time;
   const [time, setTime] = useState(+hours * 60 * 60 + +minutes * 60 + +seconds);
 
   useEffect(() => {

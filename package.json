@@ -4,21 +4,21 @@
   "private": true,
   "homepage": "http://tcwofs.github.io/crl-timer",
   "dependencies": {
-    "@material-ui/core": "^4.9.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.27",
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
-    "react": "^16.12.0",
-    "react-device-detect": "^1.13.1",
-    "react-dom": "^16.12.0",
+    "@material-ui/core": "^4.11.4",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.3.0",
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.5",
+    "react": "^17.0.2",
+    "react-device-detect": "^1.17.0",
+    "react-dom": "^17.0.2",
     "react-responsive-canvas": "^1.0.2",
-    "react-scripts": "^3.3.0",
+    "react-scripts": "^4.0.3",
     "react-text-mask": "^5.4.3",
-    "typescript": "^3.7.5"
+    "typescript": "^4.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,7 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-text-mask": "^5.4.6",
-    "gh-pages": "^2.2.0"
+    "@types/react-text-mask": "^5.4.7",
+    "gh-pages": "^3.1.0"
   }
 }

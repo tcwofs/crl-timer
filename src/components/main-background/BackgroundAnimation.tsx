@@ -5,19 +5,19 @@ import './BackgroundAnimation.css';
 
 const BackgroundAnimation = () => {
   const [canref, setCanref] = useState<HTMLCanvasElement | null>(null);
-  let ref = useRef<HTMLCanvasElement | null>(null);
+  const ref = useRef<HTMLCanvasElement | null>(null);
 
-  let stars: any[] = []; // Array that contains the stars
-  let FPS = 60; // Frames per second
+  const stars: any[] = []; // Array that contains the stars
+  const FPS = 60; // Frames per second
 
   useEffect(() => {
     ref.current = canref;
-    let canvas: HTMLCanvasElement = ref.current as HTMLCanvasElement;
+    const canvas: HTMLCanvasElement = ref.current as HTMLCanvasElement;
     if (!canvas) {
       return;
     }
-    let context: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
-    let numberOfStars = isMobile ? 60 : 100; // Number of stars
+    const context: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
+    const numberOfStars = isMobile ? 60 : 100; // Number of stars
     let requestID: number;
 
     const render = () => {
@@ -56,7 +56,7 @@ const BackgroundAnimation = () => {
     context.globalCompositeOperation = 'lighter';
 
     for (let i = 0, x = stars.length; i < x; i++) {
-      let s = stars[i];
+      const s = stars[i];
 
       context.fillStyle = '#efefef';
       context.beginPath();
@@ -68,10 +68,10 @@ const BackgroundAnimation = () => {
 
     context.beginPath();
     for (let i = 0, x = stars.length; i < x; i++) {
-      let starI = stars[i];
+      const starI = stars[i];
       context.moveTo(starI.x, starI.y);
       for (let j = 0, x = stars.length; j < x; j++) {
-        let starII = stars[j];
+        const starII = stars[j];
         if (distance(starI, starII) < 150) {
           context.lineTo(starII.x, starII.y);
         }
@@ -99,7 +99,7 @@ const BackgroundAnimation = () => {
 
   const update = (width: number, height: number) => {
     for (let i = 0, x = stars.length; i < x; i++) {
-      let s = stars[i];
+      const s = stars[i];
 
       s.x += s.vx / FPS;
       s.y += s.vy / FPS;
